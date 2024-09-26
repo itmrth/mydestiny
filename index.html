@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hau-NT | My Destiny</title>
+    <style type="text/css">
+    .world {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+	color: #FFF;
+	text-align: center;
+    }
+    .menu_css {
+		font-family: "Times New Roman", Times, serif;
+        font-size: 22px;
+        width: 80px;
+        height: 30px;
+        border: 0.5px solid #caced1;
+        border-radius: 0.25rem;
+    }
+    </style>
+</head>
+<body bgcolor="#000000">
+	<script>	
+		function DoiIMG(){
+   		var x = document.getElementById("menu_pixel").value;
+		a = document.getElementById("idIMG");
+		a.src = "img/" + x + ".png";
+		if(x == "1080" ){
+			var select = document.getElementById("menu_pixel");
+			var option = document.createElement("option");
+			var length = select.options.length;
+			for(var i = 0; i < length-1; i++){
+				select.remove(select.options[0]);	
+			}
+			option.text = "tớ";
+			option.value = "to";
+			select.add(option);
+			document.getElementById("idMuiten").removeAttribute("hidden");		
+		}
+		if(x == "to" ){
+			document.getElementById("lbChu").innerHTML = "Thế giới của ";
+			var select = document.getElementById("menu_pixel");
+			var option = document.createElement("option");
+			select.remove(select.options);
+			document.getElementById("idMuiten").hidden = "0" ;
+			a.hidden = "0";
+			document.getElementById("YouTimGif").removeAttribute("hidden");
+		}
+		}
+	</script>
+    <div align="center">
+    <table width="400">
+      <tr>
+    	<td height="50"></td>
+      </tr>
+      <tr>
+      	<td height="500" align="center">
+        <img id="idIMG" src="img/320.png" width="400" height="400">
+        <img src="img/YouTimGif.gif" id="YouTimGif" height="500" hidden="">
+        </td>
+      </tr>
+      <tr>
+        <td height="40" align="center">
+        <label id="lbChu" for="menu_pixel" class="world"><span class="world">Thế giới qua góc nhìn </span></label>
+        <select name="menu_pixel" class="menu_css" id="menu_pixel" onChange="DoiIMG()">
+          <option value="320" selected>320p</option>
+          <option value="480">480p</option>
+          <option value="720">720p</option>
+          <option value="1080">1080p</option>
+        </select>    
+             <img src="img/MuiTenGif.gif" name="idMuiten" height="20" id="idMuiten" hidden="0">
+        </td>
+      </tr> 
+    </table> 
+    </div>
+</body>
+</html>
